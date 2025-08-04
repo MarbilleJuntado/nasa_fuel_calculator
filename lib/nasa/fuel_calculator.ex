@@ -1,5 +1,5 @@
 defmodule NASA.Calculator do
-  @moduledoc "Recursive fuel calculation logic"
+  @moduledoc "Calculation logic"
 
   alias Decimal, as: D
 
