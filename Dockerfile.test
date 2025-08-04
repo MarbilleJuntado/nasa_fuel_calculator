@@ -1,0 +1,21 @@
+# Test stage for NASA fuel calculator
+FROM elixir:1.18-alpine
+
+# Install build dependencies
+RUN apk add --no-cache git
+
+# Set working directory
+WORKDIR /app
+
+# Copy mix files
+COPY mix.exs mix.lock ./
+
+# Install dependencies
+RUN mix deps.get
+
+# Copy source code and tests
+COPY lib/ ./lib/
+COPY test/ ./test/
+
+# Run tests
+CMD ["mix", "test"] 
