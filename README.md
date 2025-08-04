@@ -15,10 +15,10 @@ docker build -t nasa .
 
 ### Run
 ```bash
-docker run nasa <fuel> <action>:<planet> [<action>:<planet>...]
+docker run nasa <mass> <action>:<planet> [<action>:<planet>...]
 ```
 
-The first parameter is the initial fuel amount. Actions can be `launch` or `land`, and planets can be `earth`, `mars`, or `moon`.
+The first parameter is the equipment mass. Actions can be `launch` or `land`, and planets can be `earth`, `mars`, or `moon`.
 
 Example:
 ```bash

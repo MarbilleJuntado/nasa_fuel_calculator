@@ -19,7 +19,7 @@ defmodule NASA.CLI do
 
       {:error, _} ->
         IO.puts(
-          "#{IO.ANSI.red()}Invalid input. Usage: ./nasa <mass> <action:planet> ...#{IO.ANSI.reset()}"
+          "#{IO.ANSI.red()}Invalid input. Usage: docker run nasa <mass> <action:planet> ...#{IO.ANSI.reset()}"
         )
     end
   end
