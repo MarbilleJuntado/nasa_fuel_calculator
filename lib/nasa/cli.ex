@@ -4,11 +4,10 @@ defmodule NASA.CLI do
   alias NASA.{Mission, CalculatorServer}
 
   def main(args) do
-    Application.ensure_all_started(:decimal)
+    Application.ensure_all_started(:nasa_fuel_calculator)
 
     case parse_args(args) do
       {:ok, mission} ->
-        {:ok, _} = CalculatorServer.start_link(nil)
         fuel = CalculatorServer.calculate_fuel(mission)
 
         IO.puts(
