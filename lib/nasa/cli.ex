@@ -24,8 +24,9 @@ defmodule NASA.CLI do
     end
   end
 
-  defp parse_args([mass_str | step_strs]) do
-    with {mass, ""} <- Integer.parse(mass_str),
+  defp parse_args(args) do
+    with [mass_str | step_strs] <- args,
+         {mass, ""} <- Integer.parse(mass_str),
          steps <- Enum.map(step_strs, &parse_step/1),
          {:ok, mission} <- Mission.new(mass, steps) do
       {:ok, mission}
@@ -36,12 +37,16 @@ defmodule NASA.CLI do
   end
 
   defp parse_step(str) do
-    [action, planet] = String.split(str, ":")
+    case String.split(str, ":") do
+      [action, planet] ->
+        case action do
+          "launch" -> {:launch, planet}
+          "land" -> {:land, planet}
+          _ -> {:error, :invalid}
+        end
 
-    case action do
-      "launch" -> {:launch, planet}
-      "land" -> {:land, planet}
-      _ -> {:error, :invalid}
+      _ ->
+        {:error, :invalid}
     end
   end
 end

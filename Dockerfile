@@ -1,9 +1,6 @@
 # Multi-stage build for lightweight NASA fuel calculator
 FROM elixir:1.18-alpine AS builder
 
-# Install build dependencies
-RUN apk add --no-cache git
-
 # Set working directory
 WORKDIR /app
 

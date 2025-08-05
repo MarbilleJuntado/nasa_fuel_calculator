@@ -11,6 +11,8 @@ defmodule NASA.Mission do
     end
   end
 
+  def new(_, _), do: {:error, :invalid}
+
   defp validate_steps(steps) do
     Enum.reduce_while(steps, {:ok, []}, fn
       {action, planet}, {:ok, acc} when action in [:launch, :land] ->

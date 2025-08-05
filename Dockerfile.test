@@ -1,9 +1,6 @@
 # Test stage for NASA fuel calculator
 FROM elixir:1.18-alpine
 
-# Install build dependencies
-RUN apk add --no-cache git
-
 # Set working directory
 WORKDIR /app
 
